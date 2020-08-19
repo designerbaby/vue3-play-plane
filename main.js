@@ -1,4 +1,4 @@
-import App from './src/App.js'
+import App from './src/App'
 import { getRootContainer } from './src/Game'
 import { createApp } from './src/runtime-canvas'
 

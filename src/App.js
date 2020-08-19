@@ -1,5 +1,5 @@
 import { defineComponent, h } from '@vue/runtime-core'
-import MainPage from './page/MainPage.js'
+import MainPage from './page/MainPage'
 
 // template -> render
 export default defineComponent({

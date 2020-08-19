@@ -13,6 +13,6 @@
 ### 四、飞机大战玩法：
 
 - 1、启动: `yarn serve`
-- 2、访问: [http://localhost:5000/dist/](http://localhost:5000/dist/)
+- 2、访问: [http://localhost:8081/](http://localhost:8081/)
 - 3、构建：`yarn build`
 - 4、玩法：
