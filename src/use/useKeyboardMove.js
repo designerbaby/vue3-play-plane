@@ -86,7 +86,31 @@ export const useKeyboardMove = ({ x, y, speed }) => {
   const handleKeydown = (e) => {
     const command = commandMap[e.code]
     if (command && !isExistCommand(command)) {
-      
+      moveCommands.unshift(command)
     }
+  }
+
+  const handleKeyup = (e) => {
+    const command = commandMap[e.code]
+    if (command) {
+      removeCommand(command)
+    }
+  }
+
+  onMounted(() => {
+    game.ticker.add(handleTicker)
+    window.addEventListener('keydown', handleKeydown)
+    window.addEventListener('keyup', handleKeyup)
+  })
+
+  onUnmounted(() => {
+    game.ticker.remove(handleTicker)
+    window.removeEventListener('keydown', handleKeydown)
+    window.removeEventListener('keyup', handleKeyup)
+  })
+
+  return {
+    x: moveX,
+    y: moveY
   }
 }
