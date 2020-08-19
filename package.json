@@ -1,0 +1,26 @@
+{
+  "name": "vue3-play-plane",
+  "version": "1.0.0",
+  "description": "vue3 飞机大战游戏",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "serve": "webpack-dev-server --open"
+  },
+  "keywords": [
+    "vue3",
+    "plane"
+  ],
+  "author": "liujiana",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@vue/runtime-core": "^3.0.0-rc.5",
+    "pixi.js": "^5.3.3"
+  }
+}
