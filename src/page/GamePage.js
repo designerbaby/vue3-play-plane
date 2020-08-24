@@ -10,6 +10,7 @@ import { moveEnemyPlane } from '../components/moveEnemyPlane'
 import { useKeyboardMove } from '../use/index'
 import { PAGE } from './index'
 import { stage } from '../config/stage'
+import { game } from '../Game.js'
 
 let hashCode = 0
 const createHashCode = () => {
@@ -58,6 +59,8 @@ const useSelfPlane = ({ x, y, speed }) => {
   
   selfPlane.x = selfPlaneX
   selfPlane.y = selfPlaneY
+
+  return selfPlane
 }
 
 // 我方子弹
@@ -84,7 +87,7 @@ const useSelfBullet = () => {
   }
 
   return {
-    useSelfBullet,
+    selfBullets,
     createSelfBullet,
     destroySelfBullet
   }
@@ -113,7 +116,7 @@ const useEnemyPlanes = () => {
   return enemyPlanes
 }
 
-// 敌军战绩子弹
+// 敌军战机子弹
 const useEnemyPlaneBullets = () => {
   // 创建敌军子弹
   const enemyPlaneBullets = reactive([])
@@ -124,7 +127,7 @@ const useEnemyPlaneBullets = () => {
     const height = EnemyBulletInfo.height
     const rotation = EnemyBulletInfo.rotation
     const dir = EnemyBulletInfo.dir
-    enemyPlaneBullets.push(x, y, id, width, height, rotation, dir)
+    enemyPlaneBullets.push({x, y, id, width, height, rotation, dir})
   }
   return {
     enemyPlaneBullets,
@@ -222,7 +225,7 @@ export default defineComponent({
         props.onNextPage(PAGE.end)
       }
     })
-
+    
     return {
       selfPlane,
       enemyPlanes,
@@ -274,12 +277,11 @@ export default defineComponent({
         },
       })
     }
-
     return h('Container', [
       h(Map),
       createSelfPlane(),
       ...ctx.selfBullets.map(createBullet),
-      ...ctx.enemyPlaneBullets.map(createEnemyPlane),
+      ...ctx.enemyPlaneBullets.map(createBullet),
       ...ctx.enemyPlanes.map(createEnemyPlane)
     ])
   }

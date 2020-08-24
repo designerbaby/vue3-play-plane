@@ -68,7 +68,6 @@ export const nodeOps = {
           el.style = style;
           break;
         case "anchor":
-          console.log(nextValue)
           el.anchor.set(...nextValue);
           break;
       }

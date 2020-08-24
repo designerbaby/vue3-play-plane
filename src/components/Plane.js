@@ -1,6 +1,6 @@
 import { game } from '../Game'
 import { useKeyboard } from '../use'
-import { h, ref, defineComponent } from '@vue/runtime-core'
+import { h, ref, defineComponent, watch, onMounted, onUnmounted } from '@vue/runtime-core'
 import planeImg from '../../resource/assets/plane.png'
 
 export const PlaneInfo = {

@@ -20,7 +20,7 @@ export const moveEnemyPlane = (enemyPlanes) => {
 
     // 检测到边界了
     if (isArrivedRightBorder(enemyPlane)) {
-      enemyPlane.x = start.width - enemyPlane.width
+      enemyPlane.x = stage.width - enemyPlane.width
     }
 
     if (isArrivedLeftBorder(enemyPlane)) {
