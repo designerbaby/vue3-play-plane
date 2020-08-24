@@ -26,7 +26,7 @@ export default defineComponent({
         texture: restartBtn,
         key: '2',
         on: {
-          pointertap: handleGoToGame
+          pointertap: ctx.handleGoToGame
         },
         interactive: true,
         buttonMode: true
