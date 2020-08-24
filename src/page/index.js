@@ -15,5 +15,6 @@ const pageMap = {
 }
 
 export const getPageComponent = (pageName) => {
+  console.log('pageName:', pageName)
   return pageMap[pageName]
 }

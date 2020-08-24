@@ -1,5 +1,5 @@
-import App from './src/App'
+import GameComponent from './src/components/GameContainer'
 import { getRootContainer } from './src/Game'
 import { createApp } from './src/runtime-canvas'
 
-createApp(App).mount(getRootContainer())
+createApp(GameComponent).mount(getRootContainer())

@@ -4,6 +4,12 @@ export const nodeOps = {
   insert(el, parent) {
     parent.addChild(el);
   },
+  remove(child) {
+    const parent = child.parent;
+    if (parent) {
+      parent.removeChild(child);
+    }
+  },
   createElement(type) {
     let element;
     switch (type) {
@@ -25,6 +31,21 @@ export const nodeOps = {
         element.drawCircle(0, 0, 20, 20)
         element.endFill()
         break
+      case "Text":
+        element = new Text()
+        element.x = 0;
+        element.y = 0;
+        break
+      case "Rectangle":
+        element = new Graphics();
+        element.lineStyle(4, 0xff3300, 1);
+        element.beginFill(0x66ccff);
+        element.drawRect(0, 0, 64, 64);
+        element.endFill();
+        element.x = 0;
+        element.y = 0;
+        element.interactive = true;
+        element.buttonMode = true;
     }
     return element;
   },
@@ -56,16 +77,29 @@ export const nodeOps = {
     }
   },
   createText (text) {
-    return new Text(text)
+    doc.createTextNode(text)
+  },
+  setText(node, text) {
+    node.nodeValue = text;
   },
   srcElementText(node, text) {
     // 创建文本
-    const cText = new Text(text)
-    node.addChild(cText)
+    el.textContent = text;
   },
   createComment(el) {
     console.log(el)
   },
-  parentNode() {},
-  nextSibling() {}
+  parentNode: (node) => node.parentNode,
+
+  nextSibling: (node) => node.nextSibling,
+
+  querySelector: (selector) => doc.querySelector(selector),
+
+  setScopeId(el, id) {
+    el.setAttribute(id, "");
+  },
+
+  cloneNode(el) {
+    return el.cloneNode(true);
+  }
 }

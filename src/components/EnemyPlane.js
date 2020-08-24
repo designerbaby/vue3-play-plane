@@ -1,6 +1,6 @@
 import { Game } from '../Game'
 import enemyImg from '../../resource/assets/enemy.png'
-import { ref, h, defineComponent, onMounted, onMounted, onUnmounted } from '@vue/runtime-core'
+import { ref, h, defineComponent, onMounted, onUnmounted } from '@vue/runtime-core'
 
 export const EnemyPlaneInfo = {
   width: 308,
